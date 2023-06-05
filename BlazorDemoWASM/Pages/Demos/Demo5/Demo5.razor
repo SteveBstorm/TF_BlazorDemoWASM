@@ -1,0 +1,22 @@
+﻿@page "/demo5"
+<h3>Demo5</h3>
+<EditForm Model="NewGame" OnValidSubmit="Validate">
+    <DataAnnotationsValidator />
+    <ObjectGraphDataAnnotationsValidator />
+    <InputText @bind-Value="NewGame.Name" placeholder="Nom du jeu"></InputText><br />
+    <ValidationMessage For="() => NewGame.Name" /><br />
+    <InputText @bind-Value="NewGame.Genre" placeholder="Genre du jeu"></InputText><br />
+    <ValidationMessage For="() => NewGame.Genre" /><br />
+
+    <InputNumber @bind-Value="NewGame.MinPlayer" placeholder="Minimum joueur"></InputNumber><br />
+    <ValidationMessage For="() => NewGame.MinPlayer" /><br />
+
+    <InputText @bind-Value="NewGame.Createur.FirstName" placeholder="Prenom createur"></InputText><br />
+    <InputText @bind-Value="NewGame.Createur.LastName" placeholder="nom createur"></InputText><br />
+
+
+    <button>Valider</button>
+    <br />
+    <ValidationSummary />
+
+</EditForm>

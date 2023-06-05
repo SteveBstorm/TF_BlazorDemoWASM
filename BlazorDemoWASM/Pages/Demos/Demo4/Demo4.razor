@@ -1,0 +1,24 @@
+﻿@page "/demo4"
+<h3>Demo4</h3>
+<p>Valeur de ma propriété : @MyProperty</p>
+<p><button @onclick="SimulateRender">Test</button></p>
+
+<Demo4Bis ValueFromParent="@MyProperty"></Demo4Bis>
+@code {
+    public string MyProperty { get; set; }
+
+    protected override void OnInitialized()
+    {
+        MyProperty = "Initialisé à l'instanciation du composant";
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender) MyProperty = "Premier render après initialize";
+        else MyProperty = "Affectation à chaque nouveau rendu";
+    }
+
+    private void SimulateRender() {
+        Console.WriteLine(MyProperty);
+    }
+}

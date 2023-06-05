@@ -1,0 +1,12 @@
+﻿@inject IJSRuntime js;
+<h3>Demo4Bis</h3>
+@ValueFromParent
+@code {
+    [Parameter]
+    public string ValueFromParent { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        //js.InvokeVoidAsync("alert", ValueFromParent);
+    }
+}
