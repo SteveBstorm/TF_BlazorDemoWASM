@@ -1,0 +1,14 @@
+﻿@page "/demo3"
+<h3>Demo3</h3>
+<p>Valeur mise à jour par l'enfant : @ValueFromChild</p>
+<ReUsableComponent
+    Value="42" 
+    NotifyParent="SetValueFromChild"
+></ReUsableComponent>
+@code {
+    public int ValueFromChild { get; set; }
+
+    public void SetValueFromChild(int value) {
+        ValueFromChild = value;
+    }
+}

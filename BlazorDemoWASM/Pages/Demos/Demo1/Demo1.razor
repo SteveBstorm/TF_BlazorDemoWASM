@@ -1,0 +1,13 @@
+﻿@page "/demo1"
+<h3>Demo1</h3>
+
+<p>@MyValue</p>
+@if(MyValue > 0) {
+    Console.WriteLine("toto");
+}
+
+<input @bind-value="MyValue" type="number"/>
+
+<button @onclick="ChangeValue" >Change Value</button>
+<button @onclick="() => ChangeValue(15)" >Change Value 2</button>
+

@@ -1,0 +1,27 @@
+﻿@page "/demo2"
+@inherits Demo2Base
+<h3>Virtualize</h3>
+<div style="max-height: 200px; overflow : scroll;">
+    <ul>
+        @foreach (Item i in ListItem)
+        {
+
+            <li>@i.Id - @i.Content</li>
+        }
+    </ul>
+</div>
+
+<hr />
+<div style="max-height: 200px; overflow : scroll;">
+    <ul>
+        <Virtualize Context="i" Items="ListItem">
+
+            <li>@i.Id - @i.Content</li>
+        </Virtualize>
+
+ 
+    </ul>
+</div>
+@code {
+
+}

@@ -1,0 +1,15 @@
+﻿<h3>ReUsableComponent</h3>
+<p>Valeur venant du parent : @Value</p>
+<p><input @bind-value="Value" /> 
+    <button class="btn-primary" @onclick="InvokeEvent">Envoi</button></p>
+@code {
+    [Parameter]
+    public int Value { get; set; }
+
+    [Parameter]
+    public EventCallback<int> NotifyParent { get; set; }
+
+    private void InvokeEvent() {
+        NotifyParent.InvokeAsync(Value);
+    }
+}
