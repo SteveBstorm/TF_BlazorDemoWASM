@@ -1,4 +1,7 @@
 ﻿@page "/demo6"
+@using Microsoft.AspNetCore.Authorization
+@attribute [AllowAnonymous]
+@layout MainLayout
 <h3>Demo6</h3>
 <button @onclick="Login">Login</button>
 <button @onclick="GetAll">Get All</button>

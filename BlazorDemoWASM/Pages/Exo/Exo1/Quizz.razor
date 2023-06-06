@@ -1,5 +1,9 @@
 ﻿@page "/exo1"
-<h3>Quizz</h3>
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+<AuthorizeView>
+    <Authorized>
+<h3>Quizz @context.User.FindFirst("Username").Value</h3>
 @if(!QuizzIsFinished){
     @if(!string.IsNullOrWhiteSpace(Username)) {
         <Questions Username="@Username"
@@ -17,6 +21,11 @@ else {
     }
     <h4>Merci d'avoir participer</h4>
 }
+    </Authorized>
+   <NotAuthorized>
+       <BlazorDemoWASM.Pages.Tools.RedirectToLogin />
+   </NotAuthorized>
+</AuthorizeView>
 @code {
 
 }

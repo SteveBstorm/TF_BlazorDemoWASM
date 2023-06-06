@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorDemoWASM.Pages.Tools;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using System.Net.Http.Json;
 
@@ -6,6 +8,8 @@ namespace BlazorDemoWASM.Pages.Demos.Demo6
 {
     public partial class Demo6
     {
+        [Inject]
+        public IServiceProvider _service { get; set; }
         [Inject]
         public HttpClient client { get; set; }
 
@@ -21,6 +25,9 @@ namespace BlazorDemoWASM.Pages.Demos.Demo6
                     var json = await m.Content.ReadAsStringAsync();
                     await js.InvokeVoidAsync("localStorage.setItem","token", json);
                     Console.WriteLine(json);
+                    ((MyStateProvider)_service.GetService<AuthenticationStateProvider>()).NotifyUserChanged();
+
+                    //_service.GetService<MyStateProvider>().NotifyUserChanged();
                 }
                 else
                 {
