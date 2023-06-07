@@ -1,0 +1,11 @@
+﻿<h3>Ajout</h3>
+<EditForm Model="ArticleForm" OnValidSubmit="OnSubmit">
+    Id : <InputNumber @bind-Value="ArticleForm.Id"></InputNumber><br />
+    Label : <InputText @bind-Value="ArticleForm.Label"></InputText><br />
+    Prix : <InputNumber @bind-Value="ArticleForm.Price"></InputNumber><br />
+    Description : <InputText @bind-Value="ArticleForm.Description"></InputText><br />
+    <button>Valider</button>
+</EditForm>
+@code {
+
+}

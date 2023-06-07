@@ -1,0 +1,30 @@
+﻿@page "/exo2"
+<h3>Liste</h3>
+
+<div style="border: black 1px solid">
+    <ul>
+        @foreach(Article a in ArticleList){
+            <li>@a.Label 
+                <button @onclick="() => SetSelectedId(a.Id)">Détails</button>
+                </li>
+        }
+    </ul>
+</div>
+
+<hr />
+@if(SelectedId > 0) {
+    <div style="border: black 1px solid">
+        <Detail Id="@SelectedId" />
+    </div>
+}
+
+
+<div style="border: black 1px solid">
+    <Ajout />
+</div>
+
+
+
+@code {
+
+}
