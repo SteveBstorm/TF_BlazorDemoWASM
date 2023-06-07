@@ -1,0 +1,20 @@
+﻿@page "/demo7"
+<h3>Chat</h3>
+
+<p>Votre pseudo : <input @bind-value="Username" /></p>
+<p>Votre message : <input @bind-value="Message" /></p>
+<button @onclick="Send">Envoyer</button>
+<button @onclick="JoinGroup">Rejoindre</button>
+<button @onclick="SendToGroup">Envoyer au groupe</button>
+
+<ul>
+    @foreach(string m in Messages){
+        <li>@m</li>
+
+    }
+    
+</ul>
+
+@code {
+
+}
